@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhancing Farming Productivity Through Innovation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 25%, #2c5364 75%, #4a90a4 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .container {
+          aspect-ratio: 16 / 9;
+          width: 90vw;
+          max-width: 1400px;
+          max-height: 80vh;
+          background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+          border-radius: 25px;
+          box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+          overflow: hidden;
+          backdrop-filter: blur(15px);
+          border: 1px solid rgba(255,255,255,0.1);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #1a5f4f 0%, #267a3a 50%, #339e35 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            background: linear-gradient(45deg, #fff 30%, #ffd700 70%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .tech-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 25px;
+        }
+
+        .tech-icon {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 20px;
+            font-size: 2em;
+            animation: float 3s ease-in-out infinite;
+            border: 2px solid rgba(255,215,0,0.5);
+        }
+
+        .tech-icon:nth-child(2) { animation-delay: -1s; }
+        .tech-icon:nth-child(3) { animation-delay: -2s; }
+        .tech-icon:nth-child(4) { animation-delay: -0.5s; }
+        .tech-icon:nth-child(5) { animation-delay: -1.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .main-comparison {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            min-height: 700px;
+        }
+
+        .problem-section {
+            background: linear-gradient(135deg, #8B0000 0%, #DC143C 30%, #FF6B6B 100%);
+            color: white;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .solution-section {
+            background: linear-gradient(135deg, #006400 0%, #32CD32 30%, #90EE90 100%);
+            color: white;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+        }
+
+        .section-icon {
+            font-size: 4em;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+        }
+
+        .features-grid {
+            display: grid;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .feature-item {
+            background: rgba(0,0,0,0.3);
+            padding: 18px;
+            border-radius: 15px;
+            border-left: 6px solid rgba(255,215,0,0.8);
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .feature-icon {
+            font-size: 1.5em;
+            width: 40px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .divider {
+            width: 6px;
+            background: linear-gradient(to bottom, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .transformation-badge {
+            background: linear-gradient(135deg, #FF4500 0%, #FF6347 50%, #FF8C00 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.8em;
+            box-shadow: 0 15px 40px rgba(255, 69, 0, 0.5);
+            transform: rotate(-10deg);
+            animation: pulse-glow 2.5s infinite;
+            border: 4px solid rgba(255,215,0,0.8);
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { 
+                transform: rotate(-10deg) scale(1);
+                box-shadow: 0 15px 40px rgba(255, 69, 0, 0.5);
+            }
+            50% { 
+                transform: rotate(-10deg) scale(1.1);
+                box-shadow: 0 20px 50px rgba(255, 69, 0, 0.8);
+            }
+        }
+
+        .metrics-section {
+            background: rgba(0,0,0,0.4);
+            padding: 25px;
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+
+        .metrics-title {
+            font-size: 1.5em;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #FFD700;
+            font-weight: bold;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .metric-card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid rgba(255,215,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,215,0,0.6);
+            transform: translateY(-5px);
+        }
+
+        .metric-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #FFD700;
+            display: block;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .metric-label {
+            font-size: 1em;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        .technology-showcase {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin: 25px 0;
+        }
+
+        .tech-badge {
+            background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%);
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: bold;
+            border: 2px solid rgba(255,215,0,0.6);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tech-badge:hover {
+            background: rgba(255,215,0,0.2);
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255,215,0,0.3);
+        }
+
+        .arrow-indicator {
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 4em;
+            color: #32CD32;
+            animation: bounce-right 2s infinite;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        @keyframes bounce-right {
+            0%, 100% { transform: translateY(-50%) translateX(0); }
+            50% { transform: translateY(-50%) translateX(15px); }
+        }
+
+        @media (max-width: 1024px) {
+            .main-comparison {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+            }
+            
+            .divider {
+                height: 6px;
+                width: 100%;
+                flex-direction: row;
+            }
+            
+            .transformation-badge {
+                transform: rotate(0deg);
+            }
+
+            .hero-title {
+                font-size: 2.2em;
+            }
+
+            .arrow-indicator {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .tech-icons {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">🚀 Enhancing Farming Productivity</h1>
+                <p class="hero-subtitle">Through Innovative AI Technology Solutions</p>
+                <div class="tech-icons">
+                    <div class="tech-icon">🤖</div>
+                    <div class="tech-icon">📡</div>
+                    <div class="tech-icon">🌦️</div>
+                    <div class="tech-icon">📊</div>
+                    <div class="tech-icon">🔗</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Comparison -->
+        <div class="main-comparison">
+            <!-- Problem Section -->
+            <div class="problem-section">
+                <div class="section-header">
+                    <div class="section-icon">⚠️</div>
+                    <h2 class="section-title">❌ Traditional Farming Challenges</h2>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="feature-icon">🤔</span>
+                        <span>Manual decision-making with limited insights</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📅</span>
+                        <span>Irregular and inefficient crop monitoring</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🌧️</span>
+                        <span>No real-time weather forecasting integration</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">💧</span>
+                        <span>Resource wastage and poor management</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🐛</span>
+                        <span>Late detection of pests and diseases</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📉</span>
+                        <span>Lower yields and higher operational costs</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🔍</span>
+                        <span>Limited scalability and data analytics</span>
+                    </div>
+                </div>
+
+                <div class="metrics-section">
+                    <h3 class="metrics-title">Current Problems</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <span class="metric-value">25%</span>
+                            <span class="metric-label">Crop Loss</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-value">High</span>
+                            <span class="metric-label">Manual Work</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-value">Poor</span>
+                            <span class="metric-label">Efficiency</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-value">Limited</span>
+                            <span class="metric-label">Growth</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arrow-indicator">→</div>
+            </div>
+
+            <!-- Transformation Divider -->
+            <div class="divider">
+                <div class="transformation-badge">AI</div>
+            </div>
+
+            <!-- Solution Section -->
+            <div class="solution-section">
+                <div class="section-header">
+                    <div class="section-icon">🤖</div>
+                    <h2 class="section-title">✅ AI-Powered Advisory Platform</h2>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="feature-icon">🧠</span>
+                        <span>Intelligent AI-driven recommendations</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📡</span>
+                        <span>Real-time IoT sensor monitoring system</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🌦️</span>
+                        <span>Advanced weather forecast API integration</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🎯</span>
+                        <span>Precision crop tracking and management</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🔍</span>
+                        <span>Early pest and disease detection alerts</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📈</span>
+                        <span>Data-driven insights and analytics</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <span>Automated resource optimization</span>
+                    </div>
+                </div>
+
+                <div class="technology-showcase">
+                    <div class="tech-badge">🤖 AI/ML Algorithms</div>
+                    <div class="tech-badge">📡 IoT Sensors</div>
+                    <div class="tech-badge">🔗 Weather APIs</div>
+                    <div class="tech-badge">☁️ Cloud Platform</div>
+                    <div class="tech-badge">📱 Mobile App</div>
+                    <div class="tech-badge">📊 Real-time Analytics</div>
+                </div>
+
+                <div class="metrics-section">
+                    <h3 class="metrics-title">Achieved Results</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <span class="metric-value">45%</span>
+                            <span class="metric-label">Yield Increase</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-value">65%</span>
+                            <span class="metric-label">Cost Reduction</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-value">85%</span>
+                            <span class="metric-label">Efficiency Boost</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-value">100%</span>
+                            <span class="metric-label">Scalable</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
